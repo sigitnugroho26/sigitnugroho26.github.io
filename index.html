@@ -167,18 +167,26 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <form>
+          <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+            <strong>Terima kasih!</strong> Pesan anda sudah kami terima.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <form name="sigit-contact-form">
             <div class="mb-3">
               <label for="name" class="form-label">Full Name</label>
-              <input type="text" class="form-control" id="name" aria-describedby="Name" />
+              <input type="text" class="form-control" id="name" aria-describedby="Name" name="name" />
             <div class="mb-3">
               <label for="Email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="Email1" aria-describedby="email" />
+              <input type="email" class="form-control" id="Email1" aria-describedby="email" name="email />
               <div class="mb-3">
                 <label for="Message" class="form-label">Message</label>
-                <textarea class="form-control" id="Message" rows="3"></textarea>
+                <textarea class="form-control" id="Message" rows="3" name="message"></textarea>
               </div> 
-            <button type="submit" class="btn btn-success p-3">Submit</button>
+            <button type="submit" class="btn btn-success  btn-kirim">Submit</button>
+            <button class="btn btn-success btn-loading d-none" type="button" disabled>
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              Loading...
+            </button>
             </form>
           </div>
         </div>
@@ -197,5 +205,32 @@
     <!-- End Footer -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script>
+      const scriptURL = '<https://script.google.com/macros/s/AKfycbznLHtFVcsfdKWfXnzOLhB2wBs-w4WFesZveATi9MQjPOhdmeY0VU9qBgzWIzgzjrw/exec>'
+      const form = document.forms['sigit-contact-form']
+      const btnKirim = document.querySelector('.btn-kirim');
+      const btnLoading = document.querySelector('.btn-loading')
+      const myAlert = document.querySelector('.my-alert')
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        // Ketika tombol submit diklik
+        // tampilkan tombol loading, hilangkan tombol kirim
+        btnLoading.classList.toggle('d-none');
+        btnKirim.classList.toggle('d-none');
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            // tamppilkan tombol kirim, hilangkan tombol loading
+            btnLoading.classList.toggle('d-none');
+            btnKirim.classList.toggle('d-none');
+            // tampilkan alert
+            myAlert.classList.toggle('d-none');
+            console.log('Success!', response);
+            // reset formnya
+            form.reset();
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
   </body>
 </html>
