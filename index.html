@@ -7,6 +7,9 @@
     <!-- Bootstap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
 
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <!-- My CSS -->
     <link rel="stylesheet" href="css/style.css" />
 
@@ -70,10 +73,10 @@
           </div>
         </div>
         <div class="row justify-content-center fs-6">
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-left" data-aos-duration="1000">
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab sit dicta assumenda nihil quod nisi quidem repellendus saepe perspiciatis inventore, maiores ipsam accusantium non odio?</p>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-right" data-aos-duration="1000"  data-aos-delay="200">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quaerat tempora quis reprehenderit totam commodi in velit natus, tempore dolore repellendus esse recusandae repellat dolorum repudiandae sunt minima cum
               consequuntur.
@@ -104,7 +107,7 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-md-4 mb-3">
-              <div class="card">
+              <div class="card" data-aos="flip-up">
                 <img src="img/2.jpg" class="card-img-top" alt="..." />
                 <div class="card-body">
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -112,7 +115,7 @@
               </div>
             </div>
             <div class="col-md-4 mb-3">
-              <div class="card">
+              <div class="card" data-aos="flip-up">
                 <img src="img/3.jpg" class="card-img-top" alt="..." />
                 <div class="card-body">
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -120,7 +123,7 @@
               </div>
             </div>
             <div class="col-md-4 mb-3">
-              <div class="card">
+              <div class="card" data-aos="flip-up">
                 <img src="img/4.jpg" class="card-img-top" alt="..." />
                 <div class="card-body">
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -128,7 +131,7 @@
               </div>
             </div>
             <div class="col-md-4 mb-3">
-              <div class="card">
+              <div class="card" data-aos="flip-up">
                 <img src="img/5.jpg" class="card-img-top" alt="..." />
                 <div class="card-body">
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -136,7 +139,7 @@
               </div>
             </div>
             <div class="col-md-4 mb-3">
-              <div class="card">
+              <div class="card" data-aos="flip-up">
                 <img src="img/6.jpg" class="card-img-top" alt="..." />
                 <div class="card-body">
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -159,7 +162,7 @@
 
     <!-- Contact -->
 
-    <section id="contact">
+    <section id="contact"  data-aos="zoom-in-down">
       <div class="container">
         <div class="row text text-center mb-3">
           <h2>Contact Me</h2>
@@ -205,7 +208,13 @@
     <!-- End Footer -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+      AOS.init();
+    </script>
+
+   <script>
       const scriptURL = '<https://script.google.com/macros/s/AKfycbznLHtFVcsfdKWfXnzOLhB2wBs-w4WFesZveATi9MQjPOhdmeY0VU9qBgzWIzgzjrw/exec>'
       const form = document.forms['sigit-contact-form']
       const btnKirim = document.querySelector('.btn-kirim');
